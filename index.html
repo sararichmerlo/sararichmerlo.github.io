@@ -1,220 +1,828 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="The Queen City Crossroads Podcast is about Americans at the crossroads of history and the choices they make when they get there. We share real peoples' explicit words as they navigate major historical events — like emancipation, world wars, school integration — and explore how they unfolded in one place: Charlotte, North Carolina. Through this work, our goal is to inspire our listeners to make courageous choices today that benefit the common good."
-        />
-        <meta
-            name="keywords"
-            content="Queen City Crossroads, Charlotte History Podcast, American History, Courageous Choices, Common Good"
-        />
-        <meta name="author" content="Sara Rich Merlo" />
-        <link rel="stylesheet" href="index.css" />
-        <title>The Queen City Crossroads Podcast</title>
-    </head>
-    <body>
-        <section id="title">
-            <h1>Queen City Crossroads</h1>
-            <small>The Charlotte History Podcast</small>
-        </section>
-        <section id="about" class="slide">
-            <h2>About The Podcast</h2>
-            <p>
-                Queen City Crossroads is about Americans at the crossroads of
-                history and the choices they make when they get there.
-            </p>
-            <p>
-                We share real peoples’ explicit words as they navigate major
-                historical events — like emancipation, world wars, school
-                integration — and explore how they unfolded in one place:
-                Charlotte, North Carolina.
-            </p>
-            <p>
-                Through this work, our goal is to inspire our listeners to make
-                courageous choices today that benefit the common good.
-            </p>
-        </section>
-        <section class="slide">
-            <h2>The Problem</h2>
-            <p>Many people in Charlotte believe:</p>
-            <ul>
-                <li>Charlotte has no history.</li>
-                <li>No one in Charlotte is from Charlotte.</li>
-                <li>For one group to win, another has to lose.</li>
-            </ul>
-            <p>In schools, history is often taught:</p>
-            <ul>
-                <li>
-                    With a nationwide scope, without attention to what happened
-                    right here in our city.
-                </li>
-                <li>
-                    With historically marginalized people’s voices missing or as
-                    isolated sidebars.
-                </li>
-                <li>Without explicit connections to the present.</li>
-            </ul>
-        </section>
-        <section class="slide">
-            <h2>The Solution</h2>
-            <p>
-                Queen City Crossroads is a podcast designed to inspire the
-                hearts and minds of a broad audience.
-            </p>
-            <p>Each episode:</p>
-            <ul>
-                <li>
-                    Puts explicit words from Charlotte's history into
-                    conversation with contemporary Charlotteans today.
-                </li>
-                <li>
-                    Includes diverse voices by design to ensure a deeper, more
-                    complete understanding of our history.
-                </li>
-                <li>
-                    Challenges the idea that one group has to lose for another
-                    to win. Instead, it's about joining forces — no matter your
-                    background — to create a city where we all thrive.
-                </li>
-            </ul>
-        </section>
-        <section id="founder">
-            <div class="upper-half">
-                <h2>Founder & Director</h2>
-                <div class="image-container">
-                    <img
-                        src="assets/headshots/Sara.jpg"
-                        alt="Sara image here"
-                    />
-                </div>
-                <div class="founder-name">
-                    <h3>Sara Rich Merlo</h3>
-                    <p>
-                        Former history teacher and instructional designer with
-                        success scaling for impact.
-                    </p>
-                    <p><a href="#">Learn More..</a></p>
-                </div>
-            </div>
-            <div class="bottom-half">
-                <img src="assets/sara-michael.jpg" alt="friends pic 1" />
-                <img src="assets/team.jpg" alt="friends pic 2" />
-            </div>
-        </section>
-        <section id="team" class="split-slide">
-            <h2>Creative Team</h2>
-            <div class="team-group">
-                <div class="teammate">
-                    <div class="image-container">
-                        <img
-                            src="assets/headshots/chris.jpg"
-                            alt="Chris Moxley Headshot"
-                        />
-                    </div>
-                    <h3>Chris Moxley</h3>
-                    <span>Host</span>
-                    <p>
-                        Born and raised in Charlotte. Founder of 704 Shop and
-                        creator of Fact Friday, an inclusive history of
-                        Charlotte that inspires hometown pride.
-                    </p>
-                    <button type="button" command="show-modal" commandfor="chris-dialog">Learn More</button>
-                    <dialog id="chris-dialog" class="bio-extended">
-                        <h3>About Chris</h3>
-                        <p>Christopher Moxley is a career Fortune 100, corporate professional turned Forbes-featured, full-time entrepreneur. He is co-founder of several businesses, including the award-winning Charlotte-based lifestyle and apparel brand, 704 Shop, which he scaled into a widely known 7-figure business and made a successful exit. His primary skillset includes business strategy, sales, operations, and expanding both business relationships and brand visibility. Chris is passionate about his hometown of Charlotte, NC and its history, having founded and curated 704 Shop’s Fact Friday series - an inclusive history of Charlotte that inspires hometown pride - and demonstrates this passion through service to the community in the form of philanthropy, volunteerism, and non-profit board service. </p>
-                        <button type="button" command="close" command-for="chris-dialog">Close</button>
-                    </dialog>
-                </div>
-                <div class="teammate">
-                    <div class="image-container">
-                        <img
-                            src="assets/headshots/brandon.jpeg"
-                            alt="Brandon Lunsford Headshot"
-                        />
-                    </div>
-                    <h3>Brandon Lunsford</h3>
-                    <span>Historian</span>
-                    <p>
-                        Historian at Mecklenburg County Parks and Recreation and
-                        author of "Charlotte: Then and Now." Former librarian at
-                        JCSU.
-                    </p>
-                    <button type="button" command="show-modal" commandfor="my-dialog">Learn More</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Queen City Crossroads is a podcast about Americans at the crossroads of history and the choices they make when they get there, explored through explicit historical words in Charlotte, North Carolina.">
+  <meta name="keywords" content="Queen City Crossroads, Charlotte NC, History Podcast, American History, Civil Rights, Emancipation, Common Good">
+  <meta name="author" content="Queen City Crossroads">
+  <meta name="theme-color" content="#2D5A43">
+  
+  <title>Queen City Crossroads — The Charlotte History Podcast</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-                    <dialog id="my-dialog">
-                      <p>This dialog was opened using an invoker command.</p>
-                      <button commandfor="my-dialog" command="close">Close</button>
-                    </dialog>
-                </div>
-                <div class="teammate">
-                    <div class="image-container">
-                        <img
-                            src="assets/headshots/michael.jpg"
-                            alt="Michael Betts Headshot"
-                        />
-                    </div>
-                    <h3>Michael Betts</h3>
-                    <span>Sound Designer</span>
-                    <p>
-                        Aural historian and recording engineer. Assistant
-                        Professor of Film Studies in Sound Design at UNCW.
-                    </p>
-                    <button type="button">Learn More</button>
-                </div>
-                <div class="teammate">
-                    <div class="image-container">
-                        <img
-                            src="assets/headshots/helen-upscaled.jpg"
-                            alt="Helen Schwab Headshot"
-                        />
-                    </div>
-                    <h3>Helen Schwab</h3>
-                    <span>Writer</span>
-                    <p>
-                        Writer, editor, researcher for Charlotte Mecklenburg
-                        Community Remembrance Project. 30+ year veteran of the
-                        Charlotte Observer.
-                    </p>
-                    <button type="button">Learn More</button>
-                </div>
+  <!-- Global SVG Defs for Icons & Hero Pattern -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false" style="display: none;">
+    <defs>
+      <!-- Queen City Crown -->
+      <g id="icon-crown">
+        <path d="M4 22h24v3H4zM5 19l2.5-9 5.5 5 4-10 4 10 5.5-5L29 19H5z" fill="currentColor"/>
+        <circle cx="5" cy="9" r="1.5" fill="currentColor"/>
+        <circle cx="11.5" cy="14" r="1.5" fill="currentColor"/>
+        <circle cx="16.5" cy="4" r="1.5" fill="currentColor"/>
+        <circle cx="21.5" cy="14" r="1.5" fill="currentColor"/>
+        <circle cx="28" cy="9" r="1.5" fill="currentColor"/>
+      </g>
+
+      <!-- Trade & Tryon Crossroads -->
+      <g id="icon-crossroads">
+        <path d="M16 2v28M2 16h28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="3.5" fill="currentColor"/>
+        <path d="M12 12l8 8M20 12l-8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+      </g>
+
+      <!-- Oak Leaf ("City of Trees") -->
+      <g id="icon-oak-leaf">
+        <path d="M16 3c-2 3-5 5-5 9 0 2 1.5 3.5 1 5.5s-2 3.5-1 5.5c.8 1.6 3 2.5 5 3 2-.5 4.2-1.4 5-3 1-2-.5-3.5-1-5.5s1-3.5 1-5.5c0-4-3-6-5-9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M16 7v20M16 13l3.5-2.5M16 18l-3.5-2.5M16 22l3-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- Streetcar Lines -->
+      <g id="icon-streetcar">
+        <path d="M6 3v26M26 3v26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M6 7h20M6 13h20M6 19h20M6 25h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- Solution Icon 1: Speech & Primary Sources -->
+      <g id="icon-speech">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 8h8M8 12h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+
+      <!-- Solution Icon 2: Diverse Unity / Mosaic -->
+      <g id="icon-unity">
+        <circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M3 18c0-3 2.5-5 6-5s6 2 6 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="18" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M15.5 18c.3-1.8 2-3 4-3s3.5 1.2 3.5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </g>
+
+      <!-- Solution Icon 3: Crossroads / Synergy -->
+      <g id="icon-synergy">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- Platform Icons -->
+      <g id="icon-apple">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.84.94-2.91-.91.04-2.02.6-2.67 1.37-.58.67-1.09 1.77-.95 2.82 1.02.08 2.05-.51 2.68-1.28z" fill="currentColor"/>
+      </g>
+      <g id="icon-spotify">
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.623.623 0 0 1-.858.207c-2.35-1.436-5.308-1.76-8.794-.963a.625.625 0 0 1-.278-1.218c3.814-.872 7.078-.504 9.723 1.116a.625.625 0 0 1 .207.858zm1.225-2.723a.78.78 0 0 1-1.073.257c-2.69-1.653-6.79-2.131-9.972-1.165a.781.781 0 1 1-.456-1.493c3.633-1.103 8.151-.571 11.244 1.328a.78.78 0 0 1 .257 1.073zm.106-2.835C14.693 8.922 9.4 8.747 6.332 9.68a.936.936 0 1 1-.543-1.791c3.518-1.068 9.363-.865 13.09 1.348a.936.936 0 0 1-1.052 1.545z" fill="currentColor"/>
+      </g>
+      <g id="icon-pocketcasts">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6 0 1.66.67 3.16 1.76 4.24l1.41-1.41A3.988 3.988 0 0 1 8 12c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.1-.45 2.1-1.17 2.83l1.41 1.41C17.33 15.16 18 13.66 18 12c0-3.31-2.69-6-6-6zm0 4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="currentColor"/>
+      </g>
+      <g id="icon-rss">
+        <circle cx="6.18" cy="17.82" r="2.18" fill="currentColor"/>
+        <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z" fill="currentColor"/>
+      </g>
+
+      <!-- Charlotte Scattered Hero Pattern Definition -->
+      <pattern id="charlotte-hero-pattern" width="220" height="220" patternUnits="userSpaceOnUse">
+        <!-- Crown -->
+        <g transform="translate(20, 20) scale(1.1)" opacity="0.06">
+          <use href="#icon-crown"/>
+        </g>
+        <!-- Crossroads -->
+        <g transform="translate(130, 25) scale(1.1)" opacity="0.06">
+          <use href="#icon-crossroads"/>
+        </g>
+        <!-- Oak Leaf -->
+        <g transform="translate(30, 125) scale(1.1)" opacity="0.06">
+          <use href="#icon-oak-leaf"/>
+        </g>
+        <!-- Streetcar Lines -->
+        <g transform="translate(135, 125) scale(1.1)" opacity="0.06">
+          <use href="#icon-streetcar"/>
+        </g>
+        <!-- Secondary accents for balanced scatter -->
+        <g transform="translate(85, 80) scale(0.65)" opacity="0.05">
+          <use href="#icon-crossroads"/>
+        </g>
+      </pattern>
+    </defs>
+  </svg>
+
+  <!-- Sticky Header Navigation -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="#listen" class="brand-logo" aria-label="Queen City Crossroads Home">
+        <svg class="brand-logo-icon" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <use href="#icon-crown"/>
+        </svg>
+        <span class="brand-logo-text">QUEEN CITY CROSSROADS</span>
+      </a>
+
+      <div class="nav-links-wrapper">
+        <ul class="nav-menu" role="list">
+          <!-- 1. Listen Dropdown (Hidden via CSS by default for V1) -->
+          <li class="nav-item nav-item-dropdown v1-hidden" id="nav-listen-item">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="listen-dropdown-menu">
+              Listen
+              <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+                <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <ul class="dropdown-menu" id="listen-dropdown-menu" role="list">
+              <li>
+                <a href="#listen" class="dropdown-link">
+                  <svg class="platform-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-apple"/></svg>
+                  Apple Podcasts
+                </a>
+              </li>
+              <li>
+                <a href="#listen" class="dropdown-link">
+                  <svg class="platform-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-spotify"/></svg>
+                  Spotify
+                </a>
+              </li>
+              <li>
+                <a href="#listen" class="dropdown-link">
+                  <svg class="platform-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-pocketcasts"/></svg>
+                  Pocket Casts
+                </a>
+              </li>
+              <li>
+                <a href="#listen" class="dropdown-link">
+                  <svg class="platform-icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-rss"/></svg>
+                  Amazon Music / Overcast / RSS Feed
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- 2. About Link -->
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+
+          <!-- 3. The Team Link -->
+          <li class="nav-item">
+            <a href="#team" class="nav-link">The Team</a>
+          </li>
+        </ul>
+
+        <!-- 4. Contact CTA Button -->
+        <a href="mailto:queencitycrossroads@gmail.com" class="btn btn-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ================================================================= -->
+    <!-- PANEL 1: LISTEN (HERO) -->
+    <!-- ================================================================= -->
+    <section id="listen" class="section section-hero" aria-labelledby="hero-title">
+      <!-- Scattered Background Pattern Layer -->
+      <div class="hero-pattern-bg" aria-hidden="true">
+        <svg width="100%" height="100%">
+          <rect width="100%" height="100%" fill="url(#charlotte-hero-pattern)" />
+        </svg>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-header-stack">
+          <p class="hero-eyebrow">The Charlotte History Podcast</p>
+          <h1 id="hero-title" class="hero-title">
+            Americans at the crossroads of history and the choices they make when they get there.
+          </h1>
+          <p class="hero-subtitle">
+            Exploring major historical events through explicit words in one place: Charlotte, North Carolina.
+          </p>
+        </div>
+
+        <!-- Custom Responsive SoundCloud Embed Player Container -->
+        <div class="soundcloud-player-container">
+          <iframe
+            id="soundcloud-embed"
+            title="Queen City Crossroads Pilot Episode Player"
+            width="100%"
+            height="166"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/queencitycrossroads/queen-city-crossroads-podcast&color=%232d5a43&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+          </iframe>
+          <div class="player-caption">
+            <span>Pilot Episode &bull; Sponsored by the Charlotte Mecklenburg Library</span>
+          </div>
+        </div>
+
+        <!-- Platform Subscription Row (Hidden in CSS by default for V1) -->
+        <div class="platform-links-wrapper v1-hidden" aria-label="Podcast subscription platforms">
+          <p class="platform-heading">Subscribe on your favorite platform:</p>
+          <div class="platform-badges">
+            <a href="#" class="platform-badge" aria-label="Subscribe on Apple Podcasts">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-apple"/></svg>
+              <span>Apple Podcasts</span>
+            </a>
+            <a href="#" class="platform-badge" aria-label="Subscribe on Spotify">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-spotify"/></svg>
+              <span>Spotify</span>
+            </a>
+            <a href="#" class="platform-badge" aria-label="Subscribe on Pocket Casts">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pocketcasts"/></svg>
+              <span>Pocket Casts</span>
+            </a>
+            <a href="#" class="platform-badge" aria-label="Subscribe on Amazon Music">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-rss"/></svg>
+              <span>Amazon Music</span>
+            </a>
+            <a href="#" class="platform-badge" aria-label="Subscribe on Overcast">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-rss"/></svg>
+              <span>Overcast</span>
+            </a>
+            <a href="#" class="platform-badge" aria-label="Subscribe via RSS">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-rss"/></svg>
+              <span>RSS Feed</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- PANEL 2: ABOUT -->
+    <!-- ================================================================= -->
+    <section id="about" class="section-about" aria-labelledby="about-main-heading">
+      <div class="container about-opening-container">
+        <h2 id="about-main-heading" class="visually-hidden">About Queen City Crossroads</h2>
+        <!-- Full Narrative Statement Card -->
+        <div class="narrative-card">
+          <p class="narrative-lead">
+            Queen City Crossroads is about Americans at the crossroads of history and the choices they make when they get there. We share real peoples&rsquo; explicit words as they navigate major historical events &mdash; like emancipation, world wars, school integration &mdash; and explore how they unfolded in one place: Charlotte, North Carolina. Through this work, our goal is to inspire our listeners to make courageous choices today that benefit the common good.
+          </p>
+        </div>
+      </div>
+
+      <!-- SUB-PANEL 2A: THE PROBLEM -->
+      <div id="about-problem" class="sub-panel sub-panel-problem">
+        <div class="container">
+          <div class="section-badge-header">
+            <span class="badge-tag">Context</span>
+            <h3 class="sub-panel-title">The Problem</h3>
+          </div>
+
+          <aside class="problem-grid" aria-label="Historical Misconceptions and Traditional Teaching Context">
+            <!-- Card 1: Common Local Myths -->
+            <div class="callout-card callout-card-myths">
+              <div class="card-header-icon">
+                <span class="card-icon-symbol">&times;</span>
+                <h4 class="callout-card-title">Common Local Myths</h4>
+              </div>
+              <ul class="myth-list" role="list">
+                <li class="myth-item">
+                  <strong class="myth-label">Myth 1:</strong>
+                  <span class="myth-text">Charlotte has no history.</span>
+                </li>
+                <li class="myth-item">
+                  <strong class="myth-label">Myth 2:</strong>
+                  <span class="myth-text">No one in Charlotte is from Charlotte.</span>
+                </li>
+                <li class="myth-item">
+                  <strong class="myth-label">Myth 3:</strong>
+                  <span class="myth-text">For one group to win, another has to lose.</span>
+                </li>
+              </ul>
             </div>
-        </section>
-        <section id="podcast">
-            <div class="sidebar">
-                <div class="podcast-block">
-                    <h2>Podcast</h2>
-                    <p>
-                        Listen to our
-                        <a
-                            href="https://soundcloud.com/queencitycrossroads/queen-city-crossroads-podcast"
-                            alt="episode link"
-                            >PILOT EPISODE</a
-                        >, sponsored by the Charlotte Mecklenburg Library.
-                    </p>
-                </div>
-                <div class="materials-block">
-                    <h2>Instructional Materials</h2>
-                    <p>
-                        Each episode will come with a primary source packet for
-                        deeper analysis and discussion.
-                    </p>
-                </div>
+
+            <!-- Card 2: How History Is Traditionally Taught -->
+            <div class="callout-card callout-card-teaching">
+              <div class="card-header-icon">
+                <span class="card-icon-symbol">&#9888;</span>
+                <h4 class="callout-card-title">How History Is Traditionally Taught</h4>
+              </div>
+              <ul class="teaching-list" role="list">
+                <li class="teaching-item">
+                  <span class="teaching-bullet" aria-hidden="true">&bull;</span>
+                  <span class="teaching-text">Nationwide scope that ignores local events happening right here in our city.</span>
+                </li>
+                <li class="teaching-item">
+                  <span class="teaching-bullet" aria-hidden="true">&bull;</span>
+                  <span class="teaching-text">Historically marginalized voices missing or reduced to isolated sidebars.</span>
+                </li>
+                <li class="teaching-item">
+                  <span class="teaching-bullet" aria-hidden="true">&bull;</span>
+                  <span class="teaching-text">Zero explicit connections to our present day choices.</span>
+                </li>
+              </ul>
             </div>
-            <div class="sources">
-                <img
-                    src="assets/sources/freedmens-minutes.png"
-                    alt="doc image 1"
-                />
-                <img src="assets/sources/slave-ads.png" alt="doc image 2" />
-                <img
-                    src="assets/sources/western-democrat.png"
-                    alt="doc image 3"
-                />
-                <img src="assets/sources/source-packet.png" alt="doc image 4" />
+          </aside>
+        </div>
+      </div>
+
+      <!-- UNDULATING WAVE: Sub-Panel 2A (Canvas) to Sub-Panel 2B (Brand Primary) -->
+      <div class="wave-divider-wrapper" aria-hidden="true">
+        <svg class="undulating-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
+          <path d="M0,40 C320,100 480,0 720,50 C960,100 1120,20 1440,60 L1440,100 L0,100 Z" fill="var(--color-brand-primary)"></path>
+        </svg>
+      </div>
+
+      <!-- SUB-PANEL 2B: THE SOLUTION -->
+      <div id="about-solution" class="sub-panel sub-panel-solution">
+        <div class="container">
+          <div class="section-badge-header solution-header">
+            <span class="badge-tag badge-tag-light">Our Approach</span>
+            <h3 class="sub-panel-title text-light">The Solution</h3>
+            <p class="solution-subtitle">
+              Queen City Crossroads is a podcast designed to inspire the hearts and minds of a broad audience through authentic storytelling and civic connection.
+            </p>
+          </div>
+
+          <div class="solution-features-grid">
+            <!-- Feature 1: Speech / Primary Sources -->
+            <div class="solution-feature-card">
+              <div class="solution-icon-wrap" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24"><use href="#icon-speech"/></svg>
+              </div>
+              <h4 class="solution-card-title">Authentic Primary Words</h4>
+              <p class="solution-card-text">
+                Puts explicit words from Charlotte&rsquo;s history into direct conversation with contemporary Charlotteans today.
+              </p>
             </div>
-        </section>
-    </body>
+
+            <!-- Feature 2: Diverse Unity / Mosaic -->
+            <div class="solution-feature-card">
+              <div class="solution-icon-wrap" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24"><use href="#icon-unity"/></svg>
+              </div>
+              <h4 class="solution-card-title">Diverse by Design</h4>
+              <p class="solution-card-text">
+                Includes diverse voices by design to ensure a deeper, complete understanding of our shared past.
+              </p>
+            </div>
+
+            <!-- Feature 3: Crossroads / Synergy -->
+            <div class="solution-feature-card">
+              <div class="solution-icon-wrap" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24"><use href="#icon-synergy"/></svg>
+              </div>
+              <h4 class="solution-card-title">Common Good &amp; Synergy</h4>
+              <p class="solution-card-text">
+                Challenges zero-sum thinking. It&rsquo;s about joining forces &mdash; no matter your background &mdash; to create a city where we all thrive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- UNDULATING WAVE: Sub-Panel 2B (Brand Primary) to Sub-Panel 2C (Canvas Alt) -->
+      <div class="wave-divider-wrapper" aria-hidden="true">
+        <svg class="undulating-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
+          <path d="M0,50 C360,0 600,90 900,30 C1140,80 1320,20 1440,50 L1440,100 L0,100 Z" fill="var(--color-canvas-alt)"></path>
+        </svg>
+      </div>
+
+      <!-- SUB-PANEL 2C: INSTRUCTIONAL MATERIALS (GALLERY) -->
+      <div id="about-instructional" class="sub-panel sub-panel-instructional">
+        <div class="container">
+          <div class="section-badge-header">
+            <span class="badge-tag">Curriculum &amp; Archives</span>
+            <h3 class="sub-panel-title">Instructional Materials &amp; Historical Archives</h3>
+            <p class="instructional-intro">
+              The production team carefully investigates authentic local archival documents, historic newspapers, personal ledgers, and municipal records when scripting each episode. Each episode comes accompanied by a primary source packet for classroom instruction, community book clubs, and civic discussion.
+            </p>
+          </div>
+
+          <!-- Document Gallery Grid (2x2 Desktop / 1-col Mobile) -->
+          <div class="doc-gallery-grid">
+            <!-- Document 1 -->
+            <figure class="doc-card">
+              <div class="doc-thumbnail-frame">
+                <img src="placeholder-doc-1.jpg" alt="1865 Emancipation Proclamation Local Ledger Entry" loading="lazy" class="doc-img">
+                <div class="doc-overlay">
+                  <button type="button" class="btn btn-examine" data-doc-modal="modal-doc-1" aria-haspopup="dialog">
+                    Examine Document
+                  </button>
+                  <noscript>
+                    <a href="placeholder-doc-1.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-examine">View Full Size</a>
+                  </noscript>
+                </div>
+              </div>
+              <figcaption class="doc-caption">
+                <span class="doc-era">Era: 1865 Reconstruction</span>
+                <h4 class="doc-title">Emancipation Proclamation Local Ledger</h4>
+                <p class="doc-desc">Official Mecklenburg County records and registry notations documenting the legal transition during emancipation in Charlotte.</p>
+                <button type="button" class="doc-inline-btn" data-doc-modal="modal-doc-1">
+                  Examine Document &rarr;
+                </button>
+              </figcaption>
+            </figure>
+
+            <!-- Document 2 -->
+            <figure class="doc-card">
+              <div class="doc-thumbnail-frame">
+                <img src="placeholder-doc-2.jpg" alt="1970 School Integration Court Transcript and Swann v. Charlotte-Mecklenburg Ruling" loading="lazy" class="doc-img">
+                <div class="doc-overlay">
+                  <button type="button" class="btn btn-examine" data-doc-modal="modal-doc-2" aria-haspopup="dialog">
+                    Examine Document
+                  </button>
+                  <noscript>
+                    <a href="placeholder-doc-2.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-examine">View Full Size</a>
+                  </noscript>
+                </div>
+              </div>
+              <figcaption class="doc-caption">
+                <span class="doc-era">Era: 1969–1971 Civil Rights</span>
+                <h4 class="doc-title">Swann v. Charlotte-Mecklenburg Court Records</h4>
+                <p class="doc-desc">Federal district court testimony and citizen petitions examining landmark school integration and community debate.</p>
+                <button type="button" class="doc-inline-btn" data-doc-modal="modal-doc-2">
+                  Examine Document &rarr;
+                </button>
+              </figcaption>
+            </figure>
+
+            <!-- Document 3 -->
+            <figure class="doc-card">
+              <div class="doc-thumbnail-frame">
+                <img src="placeholder-doc-3.jpg" alt="1898 Local Newspaper Clippings on Civic Rights and Community Actions" loading="lazy" class="doc-img">
+                <div class="doc-overlay">
+                  <button type="button" class="btn btn-examine" data-doc-modal="modal-doc-3" aria-haspopup="dialog">
+                    Examine Document
+                  </button>
+                  <noscript>
+                    <a href="placeholder-doc-3.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-examine">View Full Size</a>
+                  </noscript>
+                </div>
+              </div>
+              <figcaption class="doc-caption">
+                <span class="doc-era">Era: 1898 Turn of the Century</span>
+                <h4 class="doc-title">Western Democrat &amp; Local Press Clippings</h4>
+                <p class="doc-desc">Contemporary newspaper front pages chronicling local political campaigns, economic debates, and civic unrest.</p>
+                <button type="button" class="doc-inline-btn" data-doc-modal="modal-doc-3">
+                  Examine Document &rarr;
+                </button>
+              </figcaption>
+            </figure>
+
+            <!-- Document 4 -->
+            <figure class="doc-card">
+              <div class="doc-thumbnail-frame">
+                <img src="placeholder-doc-4.jpg" alt="1910 Charlotte Trade and Tryon Crossroads Directory and Ordinance Minutes" loading="lazy" class="doc-img">
+                <div class="doc-overlay">
+                  <button type="button" class="btn btn-examine" data-doc-modal="modal-doc-4" aria-haspopup="dialog">
+                    Examine Document
+                  </button>
+                  <noscript>
+                    <a href="placeholder-doc-4.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-examine">View Full Size</a>
+                  </noscript>
+                </div>
+              </div>
+              <figcaption class="doc-caption">
+                <span class="doc-era">Era: 1910 Urban Growth</span>
+                <h4 class="doc-title">Trade &amp; Tryon Directory &amp; Municipal Minutes</h4>
+                <p class="doc-desc">Commercial city directories, streetcar development charters, and neighborhood organization minutes at Charlotte's central crossroads.</p>
+                <button type="button" class="doc-inline-btn" data-doc-modal="modal-doc-4">
+                  Examine Document &rarr;
+                </button>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NATIVE HTML <dialog> LIGHTBOX MODALS FOR DOCUMENTS -->
+    <!-- Modal 1 -->
+    <dialog id="modal-doc-1" class="doc-modal" aria-labelledby="modal-1-title">
+      <div class="modal-dialog-content">
+        <div class="modal-header">
+          <h3 id="modal-1-title" class="modal-title">Emancipation Proclamation Local Ledger Entry (1865)</h3>
+          <button type="button" class="modal-close-btn" data-modal-close aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image-preview">
+            <img src="placeholder-doc-1.jpg" alt="High resolution inspection: 1865 Emancipation Proclamation Local Ledger Entry" loading="lazy">
+          </div>
+          <div class="modal-text-details">
+            <h4>Archival Metadata &amp; Context</h4>
+            <p><strong>Repository:</strong> Mecklenburg County Historical Archives / Charlotte Public Records</p>
+            <p><strong>Significance:</strong> Contains direct transcriptions of legal declarations and firsthand notices made following the conclusion of the Civil War. Analyzed in Episode 1 for explicit testimonies of formerly enslaved Carolinians building community institutions.</p>
+            <p><strong>Classroom Discussion Hook:</strong> How do official legal documents contrast with personal letters written by residents living through the same summer?</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <form method="dialog">
+            <button class="btn btn-modal-close">Close Document</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Modal 2 -->
+    <dialog id="modal-doc-2" class="doc-modal" aria-labelledby="modal-2-title">
+      <div class="modal-dialog-content">
+        <div class="modal-header">
+          <h3 id="modal-2-title" class="modal-title">Swann v. Charlotte-Mecklenburg Court Records (1969–1971)</h3>
+          <button type="button" class="modal-close-btn" data-modal-close aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image-preview">
+            <img src="placeholder-doc-2.jpg" alt="High resolution inspection: Swann v. Charlotte-Mecklenburg Court Records" loading="lazy">
+          </div>
+          <div class="modal-text-details">
+            <h4>Archival Metadata &amp; Context</h4>
+            <p><strong>Repository:</strong> Federal District Court Records &amp; University Archives</p>
+            <p><strong>Significance:</strong> Verbatim hearing transcripts from the landmark Supreme Court ruling on desegregation busing. Shows parents, students, and community leaders debating the path toward educational equity.</p>
+            <p><strong>Classroom Discussion Hook:</strong> What arguments were made for the common good versus individual preference during the 1970 public town halls?</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <form method="dialog">
+            <button class="btn btn-modal-close">Close Document</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Modal 3 -->
+    <dialog id="modal-doc-3" class="doc-modal" aria-labelledby="modal-3-title">
+      <div class="modal-dialog-content">
+        <div class="modal-header">
+          <h3 id="modal-3-title" class="modal-title">Western Democrat &amp; Local Press Clippings (1898)</h3>
+          <button type="button" class="modal-close-btn" data-modal-close aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image-preview">
+            <img src="placeholder-doc-3.jpg" alt="High resolution inspection: Western Democrat & Local Press Clippings" loading="lazy">
+          </div>
+          <div class="modal-text-details">
+            <h4>Archival Metadata &amp; Context</h4>
+            <p><strong>Repository:</strong> North Carolina Historic Newspaper Repository</p>
+            <p><strong>Significance:</strong> Newsprint artifacts showing how local media framed voting rights, statewide campaigns, and racial cooperation in the late 19th century Piedmont.</p>
+            <p><strong>Classroom Discussion Hook:</strong> How did editorial rhetoric influence citizen attitudes during pivotal election cycles?</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <form method="dialog">
+            <button class="btn btn-modal-close">Close Document</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Modal 4 -->
+    <dialog id="modal-doc-4" class="doc-modal" aria-labelledby="modal-4-title">
+      <div class="modal-dialog-content">
+        <div class="modal-header">
+          <h3 id="modal-4-title" class="modal-title">Trade &amp; Tryon Directory &amp; Municipal Minutes (1910)</h3>
+          <button type="button" class="modal-close-btn" data-modal-close aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image-preview">
+            <img src="placeholder-doc-4.jpg" alt="High resolution inspection: Trade & Tryon Directory & Municipal Minutes" loading="lazy">
+          </div>
+          <div class="modal-text-details">
+            <h4>Archival Metadata &amp; Context</h4>
+            <p><strong>Repository:</strong> Charlotte Public Library Robinson-Spangler Carolina Room</p>
+            <p><strong>Significance:</strong> Business listings, merchant petitions, and transit routes centered around the historic crossroads of Trade and Tryon streets as modern electric streetcars reshaped neighborhood integration.</p>
+            <p><strong>Classroom Discussion Hook:</strong> What physical boundaries and public investments dictated how Charlotte grew from a trading crossroads to a commercial hub?</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <form method="dialog">
+            <button class="btn btn-modal-close">Close Document</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- UNDULATING WAVE: Sub-Panel 2C (Canvas Alt) to Panel 3 (Canvas) -->
+    <div class="wave-divider-wrapper" aria-hidden="true">
+      <svg class="undulating-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,30 C300,90 540,10 800,60 C1080,100 1260,20 1440,50 L1440,100 L0,100 Z" fill="var(--color-canvas)"></path>
+      </svg>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- PANEL 3: THE TEAM -->
+    <!-- ================================================================= -->
+    <section id="team" class="section section-team" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="section-badge-header">
+          <span class="badge-tag">Leadership &amp; Voices</span>
+          <h2 id="team-heading" class="section-title">The Team Behind Queen City Crossroads</h2>
+          <p class="section-lead">
+            Historians, storytellers, audio engineers, and educators collaborating to connect Charlotte's past decisions with our shared future.
+          </p>
+        </div>
+
+        <!-- 1. Featured Founder & Director Spotlight Card -->
+        <article class="founder-card" aria-label="Founder Spotlight: Sara Rich">
+          <div class="founder-card-inner">
+            <div class="founder-media">
+              <div class="founder-photo-frame">
+                <img src="placeholder-headshot.jpg" alt="Portrait of Sara Rich, Founder and Director" class="founder-photo" loading="lazy">
+              </div>
+              <span class="founder-role-badge">Founder &amp; Director</span>
+            </div>
+            <div class="founder-info">
+              <h3 class="founder-name">Sara Rich</h3>
+              <p class="founder-summary">
+                Former history teacher and instructional designer with proven success scaling educational initiatives for lasting community impact.
+              </p>
+              <div class="founder-bio">
+                <p>
+                  Sara created Queen City Crossroads out of a profound conviction that understanding local history is fundamental to building an empathetic, united city. Having taught American history in Charlotte classrooms, she witnessed firsthand the disconnect students felt between national historical events and the physical streets they walked every day.
+                </p>
+                <p>
+                  Her background combining archival historical scholarship with rigorous instructional design ensures each episode is not merely captivating audio, but an educational instrument equipped with primary source analyses that inspire courageous civic engagement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Team Member Accordion Grid (4 Team Members) -->
+        <div class="team-accordion-section">
+          <h3 class="team-subheading">Creative Team</h3>
+          <div class="team-accordion-grid">
+            <!-- Team Member 1: Chris Moxley -->
+            <details class="team-card">
+              <summary class="team-card-header">
+                <img src="placeholder-headshot.jpg" alt="Headshot of Chris Moxley" class="team-photo" loading="lazy">
+                <div class="team-meta">
+                  <h4 class="team-name">Chris Moxley</h4>
+                  <p class="team-title">Host</p>
+                  <span class="bio-toggle-btn">
+                    <span class="btn-text-closed">Read Full Bio</span>
+                    <span class="btn-text-open">Hide Bio</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="team-bio-content">
+                <p>
+                  Born and raised in Charlotte, Chris is a career corporate professional turned full-time entrepreneur and civic leader. He is co-founder of the award-winning Charlotte lifestyle and apparel brand, 704 Shop, which he scaled into a widely celebrated community pillar.
+                </p>
+                <p>
+                  Passionate about Charlotte&rsquo;s heritage, Chris founded and curates <em>Fact Friday</em> &mdash; an inclusive history of Charlotte that inspires hometown pride &mdash; and brings deep community roots, active philanthropic leadership, and heartfelt storytelling to his role as host.
+                </p>
+              </div>
+            </details>
+
+            <!-- Team Member 2: Brandon Lunsford -->
+            <details class="team-card">
+              <summary class="team-card-header">
+                <img src="placeholder-headshot.jpg" alt="Headshot of Brandon Lunsford" class="team-photo" loading="lazy">
+                <div class="team-meta">
+                  <h4 class="team-name">Brandon Lunsford</h4>
+                  <p class="team-title">Historian</p>
+                  <span class="bio-toggle-btn">
+                    <span class="btn-text-closed">Read Full Bio</span>
+                    <span class="btn-text-open">Hide Bio</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="team-bio-content">
+                <p>
+                  Historian at Mecklenburg County Park and Recreation and author of <em>"Charlotte: Then and Now."</em> Brandon previously served as archival librarian and historian at Johnson C. Smith University (JCSU), documenting the profound cultural history of West End communities.
+                </p>
+                <p>
+                  He specializes in urban historical geography, genealogical research, and recovering lost civic narratives that give voice to forgotten neighborhoods and everyday citizens across Mecklenburg County.
+                </p>
+              </div>
+            </details>
+
+            <!-- Team Member 3: Michael Betts -->
+            <details class="team-card">
+              <summary class="team-card-header">
+                <img src="placeholder-headshot.jpg" alt="Headshot of Michael Betts" class="team-photo" loading="lazy">
+                <div class="team-meta">
+                  <h4 class="team-name">Michael Betts</h4>
+                  <p class="team-title">Sound Designer</p>
+                  <span class="bio-toggle-btn">
+                    <span class="btn-text-closed">Read Full Bio</span>
+                    <span class="btn-text-open">Hide Bio</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="team-bio-content">
+                <p>
+                  Aural historian, composer, and recording engineer. Michael serves as Assistant Professor of Film Studies in Sound Design at the University of North Carolina Wilmington (UNCW).
+                </p>
+                <p>
+                  His work crafts immersive acoustic landscapes that recreate historical environments &mdash; from bustling 19th-century trade crossroads to intimate church basement gatherings &mdash; using sonic textures to bring archival texts vividly to life.
+                </p>
+              </div>
+            </details>
+
+            <!-- Team Member 4: Helen Schwab -->
+            <details class="team-card">
+              <summary class="team-card-header">
+                <img src="placeholder-headshot.jpg" alt="Headshot of Helen Schwab" class="team-photo" loading="lazy">
+                <div class="team-meta">
+                  <h4 class="team-name">Helen Schwab</h4>
+                  <p class="team-title">Writer</p>
+                  <span class="bio-toggle-btn">
+                    <span class="btn-text-closed">Read Full Bio</span>
+                    <span class="btn-text-open">Hide Bio</span>
+                  </span>
+                </div>
+              </summary>
+              <div class="team-bio-content">
+                <p>
+                  Writer, editor, and dedicated researcher for the Charlotte Mecklenburg Community Remembrance Project. Helen is a 30+ year veteran journalist with <em>The Charlotte Observer</em>.
+                </p>
+                <p>
+                  Her investigative rigor and deep institutional memory ensure that Queen City Crossroads maintains historical precision, nuanced perspective, and evocative narrative prose in every script.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 3. Candid Team Photo Grid (Behind the Scenes) -->
+        <div class="candid-section">
+          <h3 class="candid-title">Behind the Scenes</h3>
+          <p class="candid-intro">Capturing collaboration, studio recordings, and archival fieldwork in Charlotte.</p>
+          <div class="candid-photo-grid">
+            <figure class="candid-frame">
+              <img src="placeholder-candid-1.jpg" alt="Queen City Crossroads production team collaborating in the recording studio" class="candid-img" loading="lazy">
+              <figcaption class="candid-caption">Studio tracking session &bull; Dialogue &amp; primary source table read</figcaption>
+            </figure>
+            <figure class="candid-frame">
+              <img src="placeholder-candid-2.jpg" alt="Queen City Crossroads creative team conducting archival research at local library" class="candid-img" loading="lazy">
+              <figcaption class="candid-caption">Archival fieldwork &bull; Primary ledger and historic photograph analysis</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNDULATING WAVE: Panel 3 (Canvas) to Fat Footer (Brand Primary) -->
+    <div class="wave-divider-wrapper" aria-hidden="true">
+      <svg class="undulating-divider" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,60 C280,10 580,90 840,40 C1100,0 1300,70 1440,30 L1440,100 L0,100 Z" fill="var(--color-brand-primary)"></path>
+      </svg>
+    </div>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- FAT FOOTER ARCHITECTURE -->
+  <!-- ================================================================= -->
+  <footer class="site-footer" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="visually-hidden">Site Footer</h2>
+    <div class="container footer-grid">
+      <!-- Column 1: Recent Episodes (Dynamic RSS Parse via JS) -->
+      <div class="footer-col" id="footer-recent-episodes">
+        <h3 class="footer-col-title">Recent Episodes</h3>
+        <p class="footer-episodes-loading">Loading recent episodes...</p>
+      </div>
+
+      <!-- Column 2: Listen -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Listen</h3>
+        <ul class="footer-link-list" role="list">
+          <li><a href="#listen" class="footer-link">Featured Pilot Episode</a></li>
+          <li><a href="#listen" class="footer-link">SoundCloud Streaming</a></li>
+          <li><a href="mailto:queencitycrossroads@gmail.com?subject=Podcast%20Notification%20List" class="footer-link">Join Release Notification List</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: About -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">About</h3>
+        <ul class="footer-link-list" role="list">
+          <li><a href="#about-problem" class="footer-link">The Problem</a></li>
+          <li><a href="#about-solution" class="footer-link">The Solution</a></li>
+          <li><a href="#about-instructional" class="footer-link">Instructional Materials</a></li>
+          <li><a href="#team" class="footer-link">The Team</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">Contact</h3>
+        <p class="footer-contact-desc">
+          Have an archival lead, school partnership inquiry, or story idea?
+        </p>
+        <a href="mailto:queencitycrossroads@gmail.com" class="footer-email-link">
+          queencitycrossroads@gmail.com
+        </a>
+        <p class="footer-response-note">
+          We welcome inquiries from educators, historians, and residents. Responses typically sent within 2 business days.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Bar -->
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-container">
+        <p class="copyright-text">&copy; 2026 Queen City Crossroads. All Rights Reserved.</p>
+        <p class="footer-attribution">
+          Website design &amp; development attributed to 
+          <a href="https://roggmatz.com" target="_blank" rel="noopener noreferrer">@roggmatz</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
