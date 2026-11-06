@@ -156,3 +156,58 @@ document.addEventListener("DOMContentLoaded", () => {
   initDocumentModals();
   initNavigationDropdown();
 });
+
+
+/**
+ * Module: Color Theme Switch
+ * Default follows the operating system (CSS `color-scheme: light dark`).
+ * Choosing Light or Dark sets <html data-theme> and persists to localStorage;
+ * the switch shows only Light and Dark; with no saved choice the pressed
+ * icon reflects the system theme. The pre-paint script in <head> restores the
+ * saved choice before first render.
+ */
+function initThemeSwitch() {
+  const STORAGE_KEY = "qcc-theme";
+  const root = document.documentElement;
+  const group = document.querySelector(".theme-switch");
+  if (!group) return;
+
+  const options = Array.from(group.querySelectorAll("[data-theme-value]"));
+  const themeColors = { light: "#F9F6F0", dark: "#0E110D" };
+  const metas = Array.from(document.querySelectorAll('meta[name="theme-color"]'));
+  const defaultMetas = metas.map(m => m.content);
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const read = () => {
+    try {
+      const v = localStorage.getItem(STORAGE_KEY);
+      return v === "light" || v === "dark" ? v : null;
+    } catch { return null; }
+  };
+
+  // choice: "light" | "dark" (explicit) or null (follow the system).
+  // The pressed button always shows the theme currently in effect.
+  function apply(choice) {
+    if (choice) root.dataset.theme = choice; else delete root.dataset.theme;
+    const effective = choice ?? (systemDark.matches ? "dark" : "light");
+    options.forEach(btn => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.themeValue === effective));
+    });
+    // Keep the browser UI color in step with a forced theme
+    metas.forEach((m, i) => { m.content = choice ? themeColors[choice] : defaultMetas[i]; });
+  }
+
+  options.forEach(btn => btn.addEventListener("click", () => {
+    const choice = btn.dataset.themeValue;
+    try { localStorage.setItem(STORAGE_KEY, choice); } catch { /* storage unavailable: lasts this visit */ }
+    apply(choice);
+  }));
+
+  // While following the system, track live OS changes
+  systemDark.addEventListener("change", () => { if (!read() && !root.dataset.theme) apply(null); });
+
+  apply(read());
+  group.hidden = false;
+}
+
+document.addEventListener("DOMContentLoaded", initThemeSwitch);

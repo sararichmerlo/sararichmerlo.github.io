@@ -23,44 +23,69 @@
      1. Palette primitives  (--palette-*)   raw color values, named by hue
      2. Semantic roles      (--color-*)     spec names; what a color is FOR
      3. Derived tints       (color-mix())   computed from roles, never hand-typed
-   Theme: "Charlotte After Dark" — black-green canvas, forest green panels,
-   walnut brown depth, brass detail, terracotta CTA.
+
+   Theming: roles resolve with light-dark(<light>, <dark>), which follows the
+   `color-scheme` property. Default is the operating-system preference; the
+   header switch sets <html data-theme="light|dark"> to override it.
+     "Parchment Archive" (light) — warm parchment, Queen Green, terracotta
+     "Charlotte After Dark" (dark) — black-green canvas, forest, walnut, brass
    -------------------------------------------------------------------------- */
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;            /* follow the system by default */
+}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
 
-  /* ---- Layer 1: Palette primitives ---- */
+:root {
+  /* ---- Layer 1a: Palette primitives — shared ---- */
+  --palette-forest:      #1F4030;   /* Queen Forest — dark panel & footer fill */
+  --palette-forest-deep: #14291E;   /* Deep Forest — footer bar, hover */
+  --palette-parchment:   #F2ECDD;   /* Parchment — text on green panels */
+  --palette-brass:       #D4A359;   /* Brass / Ochre — detail */
+
+  /* ---- Layer 1b: Palette primitives — dark ("Charlotte After Dark") ---- */
   --palette-black:       #0E110D;   /* Canopy Black — green-tinted near-black */
   --palette-soot:        #1B2119;   /* Soot Green — raised card surface */
-  --palette-forest:      #1F4030;   /* Queen Forest — panel & footer fill */
-  --palette-forest-deep: #14291E;   /* Deep Forest — footer bar, hover */
   --palette-sage:        #8DC4A2;   /* Sage — green legible on dark */
   --palette-walnut:      #20170F;   /* Walnut — brown secondary canvas */
   --palette-walnut-card: #2B2016;   /* Walnut Raised — card on brown */
-  --palette-parchment:   #F2ECDD;   /* Parchment — primary text */
   --palette-parchment-dim: #B9B3A3; /* Aged Paper — secondary text */
-  --palette-brass:       #D4A359;   /* Brass / Ochre — detail */
   --palette-terracotta:  #D9704D;   /* Historic Terracotta — CTA */
   --palette-terracotta-hover: #E8845F;
 
-  /* ---- Layer 2: Semantic roles (spec names) ---- */
-  --color-canvas: var(--palette-black);              /* Page background */
-  --color-canvas-alt: var(--palette-walnut);         /* Secondary panel canvas */
-  --color-text-primary: var(--palette-parchment);    /* Body copy (16:1 AAA) */
-  --color-text-muted: var(--palette-parchment-dim);  /* Secondary copy (9:1 AAA) */
-  --color-brand-primary: var(--palette-forest);      /* Green panel fill */
-  --color-brand-primary-dark: var(--palette-forest-deep);
+  /* ---- Layer 1c: Palette primitives — light ("Parchment Archive") ---- */
+  --palette-light-parchment:  #F9F6F0;  /* Warm Parchment — canvas */
+  --palette-light-stone:      #EFECE6;  /* Muted Stone — secondary canvas */
+  --palette-light-paper:      #FFFFFF;  /* Paper — raised card surface */
+  --palette-light-charcoal:   #1F2923;  /* Deep Crown Charcoal — text */
+  --palette-light-charcoal-dim: #4A564E;/* Forest Charcoal — secondary text */
+  --palette-light-green:      #2D5A43;  /* Charlotte Queen Green */
+  --palette-light-green-dark: #1E3F2E;
+  --palette-light-terracotta: #A84A29;  /* Historic Terracotta (deepened for AA) */
+  --palette-light-terracotta-hover: #8F3C1F;
+  --palette-light-brass-text: #7A5518;  /* Brass deepened for text on parchment */
+  --palette-light-brass-soft: #EBCB93;  /* Brass lightened for text on green */
+
+  /* ---- Layer 2: Semantic roles (spec names) — light-dark(light, dark) ---- */
+  --color-canvas: light-dark(var(--palette-light-parchment), var(--palette-black));
+  --color-canvas-alt: light-dark(var(--palette-light-stone), var(--palette-walnut));
+  --color-text-primary: light-dark(var(--palette-light-charcoal), var(--palette-parchment));
+  --color-text-muted: light-dark(var(--palette-light-charcoal-dim), var(--palette-parchment-dim));
+  --color-brand-primary: light-dark(var(--palette-light-green), var(--palette-forest)); /* Green panel fill */
+  --color-brand-primary-dark: light-dark(var(--palette-light-green-dark), var(--palette-forest-deep));
   --color-brand-primary-light: var(--palette-sage);
-  --color-brand-secondary: var(--palette-terracotta);       /* CTA & accents (5.8:1) */
-  --color-brand-secondary-hover: var(--palette-terracotta-hover);
-  --color-accent-detail: var(--palette-brass);       /* Borders, rules, icons */
-  --color-heading: var(--palette-sage);              /* Headings & logo on dark */
-  --color-surface: var(--palette-soot);              /* Cards on canvas */
-  --color-surface-alt: var(--palette-walnut-card);   /* Cards on brown canvas */
-  --color-on-brand: var(--palette-parchment);        /* Text on green panels */
-  --color-on-secondary: var(--palette-black);        /* Text on terracotta */
-  --color-focus-ring: var(--palette-brass);
-  --color-scrim: var(--palette-black);
+  --color-brand-secondary: light-dark(var(--palette-light-terracotta), var(--palette-terracotta)); /* CTA & accents */
+  --color-brand-secondary-hover: light-dark(var(--palette-light-terracotta-hover), var(--palette-terracotta-hover));
+  --color-accent-detail: var(--palette-brass);       /* Borders, rules, decorative icons */
+  --color-accent-text: light-dark(var(--palette-light-brass-text), var(--palette-brass)); /* Brass used as text/icon on canvas */
+  --color-accent-on-brand: light-dark(var(--palette-light-brass-soft), var(--palette-brass)); /* Brass links on green panels */
+  --color-heading: light-dark(var(--palette-light-green), var(--palette-sage));
+  --color-surface: light-dark(var(--palette-light-paper), var(--palette-soot));
+  --color-surface-alt: light-dark(var(--palette-light-paper), var(--palette-walnut-card));
+  --color-on-brand: var(--palette-light-parchment);  /* Text on green panels */
+  --color-on-secondary: light-dark(var(--palette-light-parchment), var(--palette-black)); /* Text on terracotta */
+  --color-focus-ring: light-dark(var(--palette-light-terracotta), var(--palette-brass));
+  --color-scrim: light-dark(var(--palette-light-charcoal), var(--palette-black));
 
   /* ---- Layer 3: Derived tints ---- */
   --color-accent-subtle: color-mix(in oklab, var(--color-accent-detail) 18%, transparent);
@@ -69,13 +94,16 @@
   --color-hairline: color-mix(in oklab, var(--color-text-primary) 10%, transparent);
   --color-on-brand-dim: color-mix(in oklab, var(--color-on-brand) 88%, transparent);
   --color-on-brand-faint: color-mix(in oklab, var(--color-on-brand) 70%, transparent);
-  --color-glass: color-mix(in oklab, var(--color-canvas) 92%, transparent);
+  --color-glass: color-mix(in oklab, var(--color-canvas) 94%, transparent);
   --color-glass-panel: color-mix(in oklab, var(--color-on-brand) 7%, transparent);
   --color-glass-panel-hover: color-mix(in oklab, var(--color-on-brand) 13%, transparent);
-  --color-placeholder-a: var(--palette-walnut-card);
-  --color-placeholder-b: var(--palette-soot);
+  --color-placeholder-a: light-dark(#E4DED3, var(--palette-walnut-card));
+  --color-placeholder-b: light-dark(#D8D0C2, var(--palette-soot));
   --gradient-placeholder: linear-gradient(135deg, var(--color-placeholder-a), var(--color-placeholder-b));
-  --color-pattern: var(--palette-sage);              /* Hero SVG pattern ink */
+  --color-pattern: light-dark(var(--palette-light-green), var(--palette-sage)); /* Hero SVG pattern ink */
+  --color-hero-glow: light-dark(
+    color-mix(in oklab, var(--palette-light-green) 10%, transparent),
+    color-mix(in oklab, var(--palette-forest) 55%, transparent));
 
   /* Typography Stacks */
   --font-display: "Anton", "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif; /* logo & accents */
@@ -102,11 +130,15 @@
   --space-2xl: clamp(3.0rem, 2.40rem + 3.0vw, 5.0rem);
   --space-3xl: clamp(4.0rem, 3.20rem + 4.0vw, 7.0rem);
 
-  /* Elevation Shadows */
-  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.24), 0 1px 2px rgb(0 0 0 / 0.12);
-  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.24), 0 2px 4px rgb(0 0 0 / 0.12);
-  --shadow-lg: 0 10px 24px rgb(0 0 0 / 0.30), 0 4px 8px rgb(0 0 0 / 0.15);
-  --shadow-xl: 0 20px 36px rgb(0 0 0 / 0.42), 0 8px 16px rgb(0 0 0 / 0.18);
+  /* Elevation Shadows (ink is subtler on light, deeper on dark) */
+  --shadow-ink-1: light-dark(rgb(31 41 35 / 0.08), rgb(0 0 0 / 0.24));
+  --shadow-ink-2: light-dark(rgb(31 41 35 / 0.04), rgb(0 0 0 / 0.12));
+  --shadow-ink-3: light-dark(rgb(31 41 35 / 0.10), rgb(0 0 0 / 0.30));
+  --shadow-ink-4: light-dark(rgb(31 41 35 / 0.14), rgb(0 0 0 / 0.42));
+  --shadow-sm: 0 1px 3px var(--shadow-ink-1), 0 1px 2px var(--shadow-ink-2);
+  --shadow-md: 0 4px 12px var(--shadow-ink-1), 0 2px 4px var(--shadow-ink-2);
+  --shadow-lg: 0 10px 24px var(--shadow-ink-3), 0 4px 8px var(--shadow-ink-2);
+  --shadow-xl: 0 20px 36px var(--shadow-ink-4), 0 8px 16px var(--shadow-ink-2);
 
   /* Structural Border Radii */
   --radius-sm: 4px;
@@ -385,7 +417,7 @@ p:last-child {
 
 .brand-logo-icon {
   flex-shrink: 0;
-  color: var(--color-accent-detail);
+  color: var(--color-accent-text);
 }
 
 .brand-logo-text {
@@ -516,7 +548,7 @@ p:last-child {
 .section-hero {
   position: relative;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 0%, color-mix(in oklab, var(--color-brand-primary) 55%, transparent), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 50% 0%, var(--color-hero-glow), transparent 70%),
     var(--color-canvas);
   padding-block: var(--space-2xl) var(--space-xl);
   overflow: hidden;
@@ -773,7 +805,7 @@ p:last-child {
 
 .callout-card-teaching .card-icon-symbol {
   background-color: var(--color-accent-subtle);
-  color: var(--color-accent-detail);
+  color: var(--color-accent-text);
 }
 
 .callout-card-title {
@@ -818,7 +850,7 @@ p:last-child {
 }
 
 .teaching-bullet {
-  color: var(--color-accent-detail);
+  color: var(--color-accent-text);
   font-size: 1.3rem;
   line-height: 1;
 }
@@ -1516,8 +1548,58 @@ p:last-child {
 }
 
 .footer-link:hover {
-  color: var(--color-accent-detail);
+  color: var(--color-accent-on-brand);
   transform: translateX(3px);
+}
+
+/* Theme Switch (segmented control: System / Light / Dark) — lives on the green footer */
+.footer-theme-item {
+  margin-top: var(--space-xs);
+}
+
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.theme-switch[hidden] {
+  display: none; /* revealed by app.js; no-JS visitors just get the system theme */
+}
+
+.theme-switch-title {
+  margin-right: 0.5rem;
+  color: var(--color-on-brand-dim);
+  font-size: 0.95rem;
+}
+
+.theme-switch-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--color-on-brand-dim);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.theme-switch-option:hover {
+  color: var(--color-accent-on-brand);
+}
+
+.theme-switch-option[aria-pressed="true"] {
+  background-color: var(--color-on-brand);
+  color: var(--color-brand-primary-dark);
+}
+
+.theme-switch-option svg {
+  width: 20px;
+  height: 20px;
 }
 
 .footer-contact-desc {
@@ -1529,7 +1611,7 @@ p:last-child {
 .footer-email-link {
   font-weight: 700;
   font-size: 1.05rem;
-  color: var(--color-accent-detail);
+  color: var(--color-accent-on-brand);
   display: inline-block;
   margin-bottom: 0.75rem;
   min-height: 44px;
@@ -1570,7 +1652,7 @@ p:last-child {
 }
 
 .footer-episode-item a:hover {
-  color: var(--color-accent-detail);
+  color: var(--color-accent-on-brand);
 }
 
 .ep-date {
@@ -1605,7 +1687,7 @@ p:last-child {
 }
 
 .footer-attribution a {
-  color: var(--color-accent-detail);
+  color: var(--color-accent-on-brand);
   font-weight: 700;
   transition: color var(--transition-fast);
 }
@@ -1631,6 +1713,7 @@ p:last-child {
 
   .nav-links-wrapper {
     width: 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.5rem;
   }
