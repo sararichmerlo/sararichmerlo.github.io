@@ -17,6 +17,13 @@
   font-display: swap;
 }
 
+@font-face {
+    font-family: "League Gothic";
+    src: url("assets/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf");
+    font-display: swap;
+    font-style: normal;
+}
+
 /* --------------------------------------------------------------------------
    1. CSS Custom Properties (Design Tokens)
    Three layers, so a rebrand only ever touches layer 1:
@@ -55,37 +62,42 @@
 
   /* ---- Layer 1c: Palette primitives — light ("Parchment Archive") ---- */
   --palette-light-parchment:  #F9F6F0;  /* Warm Parchment — canvas */
-  --palette-light-stone:      #EFECE6;  /* Muted Stone — secondary canvas */
-  --palette-light-paper:      #FFFFFF;  /* Paper — raised card surface */
-  --palette-light-charcoal:   #1F2923;  /* Deep Crown Charcoal — text */
-  --palette-light-charcoal-dim: #4A564E;/* Forest Charcoal — secondary text */
+  --palette-light-stone:      #F0EADC;  /* Aged Parchment — secondary canvas */
+  --palette-light-vellum:     #E6DDC8;  /* Vellum — feature band */
+  --palette-light-paper:      #FDFBF7;  /* Paper — raised card surface (barely lifted) */
+  --palette-light-ink:        #24211C;  /* Warm Ink — text, CTA, footer */
+  --palette-light-ink-deep:   #17150F;  /* Deep Ink — footer bar */
+  --palette-light-ink-dim:    #5B564B;  /* Faded Ink — secondary text */
   --palette-light-green:      #2D5A43;  /* Charlotte Queen Green */
   --palette-light-green-dark: #1E3F2E;
-  --palette-light-terracotta: #A84A29;  /* Historic Terracotta (deepened for AA) */
-  --palette-light-terracotta-hover: #8F3C1F;
   --palette-light-brass-text: #7A5518;  /* Brass deepened for text on parchment */
-  --palette-light-brass-soft: #EBCB93;  /* Brass lightened for text on green */
 
   /* ---- Layer 2: Semantic roles (spec names) — light-dark(light, dark) ---- */
   --color-canvas: light-dark(var(--palette-light-parchment), var(--palette-black));
   --color-canvas-alt: light-dark(var(--palette-light-stone), var(--palette-walnut));
-  --color-text-primary: light-dark(var(--palette-light-charcoal), var(--palette-parchment));
-  --color-text-muted: light-dark(var(--palette-light-charcoal-dim), var(--palette-parchment-dim));
+  --color-text-primary: light-dark(var(--palette-light-ink), var(--palette-parchment));
+  --color-text-muted: light-dark(var(--palette-light-ink-dim), var(--palette-parchment-dim));
   --color-brand-primary: light-dark(var(--palette-light-green), var(--palette-forest)); /* Green panel fill */
   --color-brand-primary-dark: light-dark(var(--palette-light-green-dark), var(--palette-forest-deep));
   --color-brand-primary-light: var(--palette-sage);
-  --color-brand-secondary: light-dark(var(--palette-light-terracotta), var(--palette-terracotta)); /* CTA & accents */
-  --color-brand-secondary-hover: light-dark(var(--palette-light-terracotta-hover), var(--palette-terracotta-hover));
+  --color-brand-secondary: light-dark(var(--palette-light-green), var(--palette-terracotta)); /* Accent text, rules, markers (green in light) */
+  --color-brand-secondary-hover: light-dark(var(--palette-light-green-dark), var(--palette-terracotta-hover));
+  --color-cta: light-dark(var(--palette-light-ink), var(--palette-terracotta));        /* Button fill */
+  --color-cta-hover: light-dark(var(--palette-light-green), var(--palette-terracotta-hover));
+  --color-on-cta: light-dark(var(--palette-light-parchment), var(--palette-black));
+  --color-band: light-dark(var(--palette-light-vellum), var(--palette-forest));          /* Solution band */
+  --color-on-band: light-dark(var(--palette-light-ink), var(--palette-parchment));
+  --color-footer: light-dark(var(--palette-light-ink), var(--palette-forest));
+  --color-footer-deep: light-dark(var(--palette-light-ink-deep), var(--palette-forest-deep));
   --color-accent-detail: var(--palette-brass);       /* Borders, rules, decorative icons */
   --color-accent-text: light-dark(var(--palette-light-brass-text), var(--palette-brass)); /* Brass used as text/icon on canvas */
-  --color-accent-on-brand: light-dark(var(--palette-light-brass-soft), var(--palette-brass)); /* Brass links on green panels */
-  --color-heading: light-dark(var(--palette-light-green), var(--palette-sage));
+  --color-accent-on-brand: var(--palette-brass);     /* Brass links on dark footer */
+  --color-heading: light-dark(var(--palette-light-ink), var(--palette-sage));
   --color-surface: light-dark(var(--palette-light-paper), var(--palette-soot));
   --color-surface-alt: light-dark(var(--palette-light-paper), var(--palette-walnut-card));
   --color-on-brand: var(--palette-light-parchment);  /* Text on green panels */
-  --color-on-secondary: light-dark(var(--palette-light-parchment), var(--palette-black)); /* Text on terracotta */
-  --color-focus-ring: light-dark(var(--palette-light-terracotta), var(--palette-brass));
-  --color-scrim: light-dark(var(--palette-light-charcoal), var(--palette-black));
+    --color-focus-ring: light-dark(var(--palette-light-green), var(--palette-brass));
+  --color-scrim: light-dark(var(--palette-light-ink), var(--palette-black));
 
   /* ---- Layer 3: Derived tints ---- */
   --color-accent-subtle: color-mix(in oklab, var(--color-accent-detail) 18%, transparent);
@@ -95,10 +107,14 @@
   --color-on-brand-dim: color-mix(in oklab, var(--color-on-brand) 88%, transparent);
   --color-on-brand-faint: color-mix(in oklab, var(--color-on-brand) 70%, transparent);
   --color-glass: color-mix(in oklab, var(--color-canvas) 94%, transparent);
-  --color-glass-panel: color-mix(in oklab, var(--color-on-brand) 7%, transparent);
-  --color-glass-panel-hover: color-mix(in oklab, var(--color-on-brand) 13%, transparent);
-  --color-placeholder-a: light-dark(#E4DED3, var(--palette-walnut-card));
-  --color-placeholder-b: light-dark(#D8D0C2, var(--palette-soot));
+  --color-on-band-dim: color-mix(in oklab, var(--color-on-band) 85%, transparent);
+  --color-on-footer-hairline: color-mix(in oklab, var(--color-on-brand) 14%, transparent);
+  /* Dark translucent "ink glass" tiles (light theme) / light tint glass (dark theme) */
+  --color-glass-panel: light-dark(color-mix(in oklab, var(--palette-light-ink) 92%, transparent), color-mix(in oklab, var(--color-on-brand) 7%, transparent));
+  --color-glass-panel-hover: light-dark(color-mix(in oklab, var(--palette-light-ink) 82%, transparent), color-mix(in oklab, var(--color-on-brand) 13%, transparent));
+  --color-on-glass-muted: light-dark(var(--palette-parchment-dim), var(--color-text-muted));
+  --color-placeholder-a: light-dark(#E8E1D2, var(--palette-walnut-card));
+  --color-placeholder-b: light-dark(#DAD1BD, var(--palette-soot));
   --gradient-placeholder: linear-gradient(135deg, var(--color-placeholder-a), var(--color-placeholder-b));
   --color-pattern: light-dark(var(--palette-light-green), var(--palette-sage)); /* Hero SVG pattern ink */
   --color-hero-glow: light-dark(
@@ -106,7 +122,7 @@
     color-mix(in oklab, var(--palette-forest) 55%, transparent));
 
   /* Typography Stacks */
-  --font-display: "Anton", "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif; /* logo & accents */
+  --font-display: "League Gothic", "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif; /* logo & accents */
   --font-serif: "Playfair Display", "Cinzel", "Georgia", "Charter", "Palatino", serif;
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
@@ -131,10 +147,10 @@
   --space-3xl: clamp(4.0rem, 3.20rem + 4.0vw, 7.0rem);
 
   /* Elevation Shadows (ink is subtler on light, deeper on dark) */
-  --shadow-ink-1: light-dark(rgb(31 41 35 / 0.08), rgb(0 0 0 / 0.24));
-  --shadow-ink-2: light-dark(rgb(31 41 35 / 0.04), rgb(0 0 0 / 0.12));
-  --shadow-ink-3: light-dark(rgb(31 41 35 / 0.10), rgb(0 0 0 / 0.30));
-  --shadow-ink-4: light-dark(rgb(31 41 35 / 0.14), rgb(0 0 0 / 0.42));
+  --shadow-ink-1: light-dark(rgb(36 33 28 / 0.06), rgb(0 0 0 / 0.24));
+  --shadow-ink-2: light-dark(rgb(36 33 28 / 0.03), rgb(0 0 0 / 0.12));
+  --shadow-ink-3: light-dark(rgb(36 33 28 / 0.08), rgb(0 0 0 / 0.30));
+  --shadow-ink-4: light-dark(rgb(36 33 28 / 0.12), rgb(0 0 0 / 0.42));
   --shadow-sm: 0 1px 3px var(--shadow-ink-1), 0 1px 2px var(--shadow-ink-2);
   --shadow-md: 0 4px 12px var(--shadow-ink-1), 0 2px 4px var(--shadow-ink-2);
   --shadow-lg: 0 10px 24px var(--shadow-ink-3), 0 4px 8px var(--shadow-ink-2);
@@ -233,8 +249,8 @@ a {
   left: 1rem;
   z-index: 1000;
   padding: 0.85rem 1.5rem;
-  background-color: var(--color-brand-secondary);
-  color: var(--color-on-secondary);
+  background-color: var(--color-cta);
+  color: var(--color-on-cta);
   font-weight: 700;
   font-size: var(--step-0);
   border-radius: 0 0 var(--radius-md) var(--radius-md);
@@ -305,7 +321,7 @@ p:last-child {
 }
 
 .badge-tag {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 400;
   display: inline-block;
   font-size: 0.8rem;
@@ -320,9 +336,9 @@ p:last-child {
 }
 
 .badge-tag-light {
-  color: var(--color-on-brand);
-  background-color: var(--color-glass-panel-hover);
-  border-color: var(--color-on-brand-faint);
+  color: var(--color-on-band);
+  background-color: var(--color-accent-subtle);
+  border-color: var(--color-accent-border);
 }
 
 .sub-panel-title,
@@ -332,7 +348,7 @@ p:last-child {
 }
 
 .text-light {
-  color: var(--color-on-brand) !important;
+  color: var(--color-on-band) !important;
 }
 
 .section-lead {
@@ -362,17 +378,17 @@ p:last-child {
 }
 
 .btn-cta {
-  background-color: var(--color-brand-secondary);
-  color: var(--color-on-secondary);
-  border-color: var(--color-brand-secondary);
-  box-shadow: 0 4px 10px color-mix(in oklab, var(--color-brand-secondary) 28%, transparent);
+  background-color: var(--color-cta);
+  color: var(--color-on-cta);
+  border-color: var(--color-cta);
+  box-shadow: 0 4px 10px color-mix(in oklab, var(--color-cta) 28%, transparent);
 }
 
 .btn-cta:hover {
-  background-color: var(--color-brand-secondary-hover);
-  border-color: var(--color-brand-secondary-hover);
+  background-color: var(--color-cta-hover);
+  border-color: var(--color-cta-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px color-mix(in oklab, var(--color-brand-secondary) 38%, transparent);
+  box-shadow: 0 6px 14px color-mix(in oklab, var(--color-cta-hover) 38%, transparent);
 }
 
 .btn-cta:active {
@@ -423,7 +439,7 @@ p:last-child {
 .brand-logo-text {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.2rem, 1.05rem + 0.45vw, 1.5rem);
+  font-size: clamp(2rem, 1.05rem + 0.45vw, 2.5rem);
   letter-spacing: 0.045em;
   text-transform: uppercase;
   color: var(--color-heading);
@@ -609,8 +625,10 @@ p:last-child {
 .soundcloud-player-container {
   width: 100%;
   max-width: 960px;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-accent-detail);
+  background-color: var(--color-glass-panel);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-accent-border);
   border-radius: var(--radius-lg);
   padding: 1rem;
   box-shadow: var(--shadow-lg);
@@ -626,14 +644,14 @@ p:last-child {
   width: 100%;
   border-radius: var(--radius-md);
   border: none;
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-footer);
 }
 
 .player-caption {
   margin-top: 0.75rem;
   font-size: var(--step--1);
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: var(--color-on-glass-muted);
   letter-spacing: 0.04em;
 }
 
@@ -861,18 +879,18 @@ p:last-child {
 
 /* Sub-Panel 2B: The Solution */
 .sub-panel-solution {
-  background-color: var(--color-brand-primary);
-  color: var(--color-on-brand);
+  background-color: var(--color-band);
+  color: var(--color-on-band);
   padding-block: var(--space-xl) var(--space-2xl);
 }
 
 .solution-header .sub-panel-title {
-  color: var(--color-on-brand);
+  color: var(--color-on-band);
 }
 
 .solution-subtitle {
   font-size: var(--step-1);
-  color: var(--color-on-brand-dim);
+  color: var(--color-on-band-dim);
   max-width: 700px;
   margin-inline: auto;
   line-height: 1.55;
@@ -1020,15 +1038,15 @@ p:last-child {
 }
 
 .btn-examine {
-  background-color: var(--color-brand-secondary);
-  color: var(--color-on-secondary);
-  border-color: var(--color-brand-secondary);
+  background-color: var(--color-cta);
+  color: var(--color-on-cta);
+  border-color: var(--color-cta);
   font-size: 0.88rem;
   padding: 0.55rem 1.15rem;
 }
 
 .btn-examine:hover {
-  background-color: var(--color-brand-secondary-hover);
+  background-color: var(--color-cta-hover);
 }
 
 .doc-caption {
@@ -1497,7 +1515,7 @@ p:last-child {
    11. Fat Footer Architecture (Section 5)
    -------------------------------------------------------------------------- */
 .site-footer {
-  background-color: var(--color-brand-primary);
+  background-color: var(--color-footer);
   color: var(--color-on-brand);
   padding-top: var(--space-2xl);
   margin-top: auto;
@@ -1594,7 +1612,7 @@ p:last-child {
 
 .theme-switch-option[aria-pressed="true"] {
   background-color: var(--color-on-brand);
-  color: var(--color-brand-primary-dark);
+  color: var(--color-footer);
 }
 
 .theme-switch-option svg {
@@ -1663,9 +1681,9 @@ p:last-child {
 
 /* Footer Bottom Bar */
 .footer-bottom-bar {
-  border-top: 1px solid var(--color-hairline);
+  border-top: 1px solid var(--color-on-footer-hairline);
   padding-block: 1.25rem;
-  background-color: var(--color-brand-primary-dark);
+  background-color: var(--color-footer-deep);
 }
 
 .footer-bottom-container {
