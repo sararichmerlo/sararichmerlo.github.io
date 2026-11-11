@@ -399,7 +399,7 @@ p:last-child {
    5. Sticky Header & Glassmorphic Navigation (Section 3)
    -------------------------------------------------------------------------- */
 .site-header {
-  position: sticky;
+  position: sticky; /* no-JS fallback: a normal sticky bar, always visible */
   top: 0;
   z-index: 100;
   height: var(--header-height);
@@ -410,6 +410,20 @@ p:last-child {
   box-shadow: var(--shadow-sm);
   display: flex;
   align-items: center;
+}
+
+/* With JS, the header leaves the flow and slides in once the visitor scrolls.
+   It also reveals on keyboard focus so its links are never unreachable. */
+.js .site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  transform: translateY(calc(-100% - 12px)); /* extra px hides the bar shadow */
+  transition: transform var(--transition-slow);
+}
+
+.js .site-header.is-visible,
+.js .site-header:focus-within {
+  transform: translateY(0);
 }
 
 .nav-container {
@@ -432,6 +446,8 @@ p:last-child {
 }
 
 .brand-logo-icon {
+  width: 34px;
+  height: 34px;
   flex-shrink: 0;
   color: var(--color-accent-text);
 }
@@ -439,8 +455,9 @@ p:last-child {
 .brand-logo-text {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 1.05rem + 0.45vw, 2.5rem);
-  letter-spacing: 0.045em;
+  font-size: clamp(1.5rem, 1.25rem + 0.9vw, 2rem);
+  letter-spacing: 0.05em;
+  -webkit-text-stroke: 0.04em currentColor; /* faux-bold: Anton ships one weight */
   text-transform: uppercase;
   color: var(--color-heading);
   white-space: nowrap;
@@ -462,7 +479,8 @@ p:last-child {
 .nav-link {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 1.02rem;
+  font-size: 1.3rem;
+  -webkit-text-stroke: 0.04em currentColor;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-heading);
@@ -503,7 +521,8 @@ p:last-child {
 .nav-dropdown-toggle {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 1.02rem;
+  font-size: 1.3rem;
+  -webkit-text-stroke: 0.04em currentColor;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-heading);
@@ -566,7 +585,7 @@ p:last-child {
   background:
     radial-gradient(ellipse 70% 60% at 50% 0%, var(--color-hero-glow), transparent 70%),
     var(--color-canvas);
-  padding-block: var(--space-2xl) var(--space-xl);
+  padding-block: calc(var(--space-2xl) + var(--space-l)) var(--space-xl);
   overflow: hidden;
 }
 
@@ -591,6 +610,30 @@ p:last-child {
 .hero-header-stack {
   max-width: 900px;
   margin-bottom: var(--space-xl);
+}
+
+.hero-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+  margin-bottom: var(--space-m);
+  color: var(--color-heading);
+}
+
+.hero-wordmark-icon {
+  color: var(--color-accent-text);
+}
+
+.hero-wordmark-text {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.9rem, 1.4rem + 7vw, 7.5rem);
+  line-height: 0.98;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.025em currentColor;
+  text-wrap: balance;
 }
 
 .hero-eyebrow {
@@ -1737,7 +1780,7 @@ p:last-child {
   }
 
   .brand-logo-text {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .narrative-card {

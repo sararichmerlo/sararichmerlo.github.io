@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#F9F6F0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0E110D" media="(prefers-color-scheme: dark)">
   <!-- Apply a saved theme choice before first paint (avoids a flash); no choice = follow system -->
-  <script>try{var t=localStorage.getItem("qcc-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("qcc-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 
   <title>Queen City Crossroads — The Charlotte History Podcast</title>
 
@@ -194,6 +194,11 @@
 
       <div class="container hero-content">
         <div class="hero-header-stack">
+          <!-- Hero wordmark: the site header (and its logo) stays tucked away until the visitor scrolls -->
+          <p class="hero-wordmark">
+            <svg class="hero-wordmark-icon" width="56" height="56" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><use href="#icon-crown"/></svg>
+            <span class="hero-wordmark-text">Queen City Crossroads</span>
+          </p>
           <p class="hero-eyebrow">The Charlotte History Podcast</p>
           <h1 id="hero-title" class="hero-title">
             Americans at the crossroads of history and the choices they make when they get there.

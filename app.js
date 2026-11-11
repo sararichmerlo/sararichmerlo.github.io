@@ -211,3 +211,34 @@ function initThemeSwitch() {
 }
 
 document.addEventListener("DOMContentLoaded", initThemeSwitch);
+
+
+/**
+ * Module: Reveal Header on Scroll
+ * The nav bar stays hidden so the hero wordmark and the player lead. It slides
+ * in once the visitor has scrolled past the SoundCloud player, and tucks away
+ * again when the player is back in view or partly visible.
+ * (Without JS the <html> never gets the "js" class and the bar is always shown.)
+ */
+function initHeaderReveal() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  // Fall back to the hero section if the player is ever removed
+  const marker = document.querySelector(".soundcloud-player-container") || document.getElementById("listen");
+  let ticking = false;
+
+  const update = () => {
+    const pastMarker = marker ? marker.getBoundingClientRect().bottom <= 0 : window.scrollY > 24;
+    header.classList.toggle("is-visible", pastMarker);
+    ticking = false;
+  };
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener("resize", update);
+
+  update(); // handles reloads that restore a scrolled position
+}
+
+document.addEventListener("DOMContentLoaded", initHeaderReveal);
