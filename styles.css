@@ -678,11 +678,6 @@ p:last-child {
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.soundcloud-player-container:hover {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-2px);
-}
-
 .soundcloud-player-container iframe {
   width: 100%;
   border-radius: var(--radius-md);
