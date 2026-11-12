@@ -640,7 +640,7 @@ p:last-child {
   font-family: var(--font-display);
   font-weight: 400;
   display: inline-block;
-  font-size: var(--step--1);
+  font-size: var(--step--2);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-brand-secondary);
@@ -1572,13 +1572,21 @@ p:last-child {
 }
 
 @media (min-width: 600px) {
+  /* One row, columns share the full container width (works whether the
+     Recent Episodes column is shown or hidden) */
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-template-columns: none;
+    gap: var(--space-l);
   }
 }
 
 @media (min-width: 960px) {
   .footer-grid {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    gap: var(--space-xl);
     grid-template-columns: 1fr 1fr 1.25fr;
   }
 }
