@@ -1034,11 +1034,6 @@ p:last-child {
   }
 }
 
-.doc-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
 .doc-thumbnail-frame {
   position: relative;
   width: 100%;
